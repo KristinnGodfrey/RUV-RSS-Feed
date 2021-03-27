@@ -9,14 +9,16 @@ dotenv.config();
 
 const ruvUrl = "https://vef2-2021-ruv-rss-json-proxy.herokuapp.com/";
 
-export function NewsList({ title, newsLink }) {  
+export function NewsList({ title, newsLink }) {
   const [news, setNews] = useState([]);
+  const [newsData, setNewsData] = useState([]);
 
   useEffect(() => {
     const fetchNews = async () => {
       const result = await axios(newsLink);
       // console.log(result.data);
       setNews(result.data.items);
+      setNewsData(result.data);
     };
     fetchNews();
   }, []);
@@ -35,14 +37,21 @@ export function NewsList({ title, newsLink }) {
           <a href={article.link}>{article.title}</a>
         </p>
       ))}
-      <section>
+      {/* <section>
+        
         <Switch>
-          <Route path="/innlent" render={News} />
+          <Route
+            path={linkTitle}
+            render={(props) => (              
+              <News {...props} key={newsData.title} data={newsData.items}  />
+            )}
+            {...console.log(newsData)}
+          />
         </Switch>
-      </section>
+      </section> */}
 
       <p>
-        <NavLink to="/innlent">Allar fréttir</NavLink>
+        <NavLink to={linkTitle}>Allar fréttir</NavLink>
       </p>
     </div>
   );

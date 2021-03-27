@@ -13,7 +13,7 @@ export function Categories() {
       const result = await axios(ruvUrl);
       // console.log(result.data);
       setCategories(result.data);
-      console.log(categories);
+      // console.log(categories);
     };
     fetchCategories();
   }, []);
