@@ -30,27 +30,19 @@ export function NewsList({ title, newsLink }) {
     .replace(/[\u0300-\u036f]/g, "");
 
   return (
-    
-      <div className={s.news_list__item}>
-        <h2>{title}</h2>
-        {/* {console.log(news[0])} */}
-        {news.slice(0, 5).map((article) => (
-          <p key={article.link}>
-            <a href={article.link}>{article.title}</a>
-          </p>
-        ))}
-
-        <p>
-          {/* {console.log(newsData)} */}
-          <Link
-            to={{
-              pathname: `${linkTitle}`,
-            }}
-          >
-            Allar frettir
-          </Link>
+    <div className={s.news_list__item}>
+      <h2>{title}</h2>
+      {/* {console.log(news[0])} */}
+      {news.slice(0, 5).map((article) => (
+        <p key={article.link}>
+          <a href={article.link}>{article.title}</a>
         </p>
-      </div>
-    
+      ))}
+
+      <p>
+        {/* {console.log(newsData)} */}
+        <Link to={linkTitle}> Allar frettir </Link>
+      </p>
+    </div>
   );
 }
