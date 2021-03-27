@@ -17,7 +17,7 @@ export function Categories(filterCategory) {
       //     result = result.data.filter(id => id == e.id);
       //   }
       // });
-      // console.log(result.data[0]);
+      
 
       // console.log(asni);
 
@@ -35,14 +35,10 @@ export function Categories(filterCategory) {
   }, []);
 
   return categories.map((category) => (
-    <section className={s.categories__section}>
-      <div className={s.categories__item}>
-        <NewsList
-          key={category.id}
-          title={category.title}
-          newsLink={category.url}
-        />
-      </div>
-    </section>
+    <NewsList
+      key={category.id}
+      title={category.title}
+      newsLink={category.url}
+    />
   ));
 }
