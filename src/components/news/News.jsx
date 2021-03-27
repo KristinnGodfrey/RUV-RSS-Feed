@@ -4,8 +4,6 @@ import { Route, Switch, NavLink, useLocation } from "react-router-dom";
 import axios from "axios";
 import dotenv from "dotenv";
 
-
-
 export function News(props) {
   console.log("in news: " , props);
   return (    

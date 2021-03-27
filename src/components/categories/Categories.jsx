@@ -10,38 +10,39 @@ export function Categories(filterCategory) {
 
   useEffect(() => {
     const fetchCategories = async () => {
-      let result = await axios(ruvUrl);  
+      let result = await axios(ruvUrl);
       console.log(result.data);
-      result.data.forEach((e) => {
-        if (e.id == filterCategory){
-          result = result.data.filter(id => id == e.id);
-        }      
-      });      
+      // result.data.forEach((e) => {
+      //   if (e.id == filterCategory){
+      //     result = result.data.filter(id => id == e.id);
+      //   }
+      // });
       // console.log(result.data[0]);
-      
+
       // console.log(asni);
-      
-      if (Object.keys(filterCategory).length != 0){
+
+      if (Object.keys(filterCategory).length != 0) {
+        // result = result.data.filter(id => id == "innlent")
+        // console.log(result);
+      } else {
         // result = result.data.filter(id => id == "innlent")
         // console.log(result);
       }
-      else {
-        // result = result.data.filter(id => id == "innlent")
-        // console.log(result);        
-      }
-      
-      setCategories(result.data);      
+
+      setCategories(result.data);
     };
-    fetchCategories(); 
+    fetchCategories();
   }, []);
 
   return categories.map((category) => (
-    <section>
-      <NewsList
-        key={category.id}
-        title={category.title}
-        newsLink={category.url}
-      />
+    <section className={s.categories__section}>
+      <div className={s.categories__item}>
+        <NewsList
+          key={category.id}
+          title={category.title}
+          newsLink={category.url}
+        />
+      </div>
     </section>
   ));
 }

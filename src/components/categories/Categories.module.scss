@@ -1,4 +1,16 @@
-section {
+.categories__section {
   background-color: green;  
   width:100%;  
+  display:flex;
+  flex-wrap: wrap;
+  flex-direction:row;
+}
+
+.categories__item {
+  background-color: #f5f3e3;
+  width: 32%;
+  margin-bottom: 1.5vh;
+  border: 1px solid;
+  border-radius: 2%;
+  padding-left: 1%;
 }
