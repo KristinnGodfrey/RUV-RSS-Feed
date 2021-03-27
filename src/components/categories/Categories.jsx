@@ -5,17 +5,34 @@ import s from "./Categories.module.scss";
 
 const ruvUrl = "https://vef2-2021-ruv-rss-json-proxy.herokuapp.com/";
 
-export function Categories() {
+export function Categories(filterCategory) {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     const fetchCategories = async () => {
-      const result = await axios(ruvUrl);
-      // console.log(result.data);
-      setCategories(result.data);
-      // console.log(categories);
+      let result = await axios(ruvUrl);  
+      console.log(result.data);
+      result.data.forEach((e) => {
+        if (e.id == filterCategory){
+          result = result.data.filter(id => id == e.id);
+        }      
+      });      
+      // console.log(result.data[0]);
+      
+      // console.log(asni);
+      
+      if (Object.keys(filterCategory).length != 0){
+        // result = result.data.filter(id => id == "innlent")
+        // console.log(result);
+      }
+      else {
+        // result = result.data.filter(id => id == "innlent")
+        // console.log(result);        
+      }
+      
+      setCategories(result.data);      
     };
-    fetchCategories();
+    fetchCategories(); 
   }, []);
 
   return categories.map((category) => (

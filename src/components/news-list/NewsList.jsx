@@ -1,11 +1,12 @@
 import s from "./NewsList.module.scss";
 import React, { useEffect, useState } from "react";
-import { Route, Switch, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import dotenv from "dotenv";
 import { News } from "../news/News.jsx";
 
 dotenv.config();
+
 
 const ruvUrl = "https://vef2-2021-ruv-rss-json-proxy.herokuapp.com/";
 
@@ -32,26 +33,22 @@ export function NewsList({ title, newsLink }) {
   return (
     <div className={s.news_list__item}>
       <h2>{title}</h2>
+      {/* {console.log(news[0])} */}
       {news.slice(0, 5).map((article) => (
-        <p key={article.published}>
+        <p key={article.link}>
           <a href={article.link}>{article.title}</a>
         </p>
       ))}
-      {/* <section>
-        
-        <Switch>
-          <Route
-            path={linkTitle}
-            render={(props) => (              
-              <News {...props} key={newsData.title} data={newsData.items}  />
-            )}
-            {...console.log(newsData)}
-          />
-        </Switch>
-      </section> */}
 
       <p>
-        <NavLink to={linkTitle}>Allar fréttir</NavLink>
+        {/* {console.log(newsData)} */}
+        <Link
+          to={{
+            pathname: `${linkTitle}`,            
+          }}
+        >
+          Allar frettir
+        </Link>
       </p>
     </div>
   );
