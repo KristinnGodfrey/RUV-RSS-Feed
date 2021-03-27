@@ -7,9 +7,9 @@ import { News } from "../news/News.jsx";
 
 dotenv.config();
 
-const { API_URL: apiUrl } = process.env;
+const ruvUrl = "https://vef2-2021-ruv-rss-json-proxy.herokuapp.com/";
 
-export function NewsList({ title, newsLink }) {
+export function NewsList({ title, newsLink }) {  
   const [news, setNews] = useState([]);
 
   useEffect(() => {

@@ -1,4 +1,4 @@
-import s from "./News.module.scss";
+// import s from "./News.module.scss";
 import React, { useEffect, useState } from "react";
 import { Route, Switch, NavLink } from "react-router-dom";
 import axios from "axios";
